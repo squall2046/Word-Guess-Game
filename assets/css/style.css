@@ -1,0 +1,53 @@
+/* Isaac WU Psychic Game */
+
+.iw-can {
+    padding-bottom: 50px;
+}
+
+.iw-1{
+    font-family: 'Monoton', cursive;
+    font-family: 'Fredericka the Great', cursive;
+    text-align: center;
+    margin-top: 20px;
+    padding:35px;
+    font-size: 35px;
+    color: rgb(195, 205, 218);
+}
+
+#crystal {
+    width: 80px;
+}
+
+.iw-2 {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 25px;
+    color: rgb(195, 205, 218);
+}
+
+.iw-3 {
+    /* background-image: url("../images/crystal.gif"); */
+    float: left;
+    position: relative;
+    color: rgb(195, 205, 218);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15px;
+    text-align: center;
+    color: rgb(195, 205, 218);
+}
+
+#player-typed {
+    font-size: 25px;
+}
+
+footer {
+    float: left;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    color: rgb(195, 205, 218);
+    text-align: center;
+    font-size: 12px;
+    color: rgb(195, 205, 218);
+    height: 40px;
+    };
+    

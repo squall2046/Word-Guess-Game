@@ -1,20 +1,70 @@
+<!--Isaac WU Psychic Game-->
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>Rock Paper Scissors Part 7</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>IW Psychic Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- css -->
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+  <!-- bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <!-- google fonts -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Monoton|Press+Start+2P" rel="stylesheet"> -->
+  <!-- title logo -->
+  <link rel="shortcut icon" href="assets/images/iw-icon.png">
 </head>
 
-<body>
+<body background="assets/images/darkness.png">
+  <div class="container iw-can">
+    <div class="row">
+      <div class="col-lg-12 iw-1">
+        <h1>FF VII <span><img src="assets/images/crystal.gif" id="crystal"></span>&nbsp;Word Guess Game</h1>
+        <h5 class="iw-2">-FF FAN MADE-</h5>
+      </div>
+    </div>
 
-    <div>
-        <p id="directions-text">Press r, p or s to start playing!</p>
-        <p id="userchoice-text"></p>
-        <p id="computerchoice-text"></p>
-        <p id="wins-text"></p>
-        <p id="losses-text"></p>
-        <p id="ties-text"></p>
+    <div class="row">
+      <div class="col-lg-3" id="loss-pic">
+        <img src="assets/images/sephiroth.gif" class="leftpic">
+      </div>
+      <div class="col-lg-6 iw-3">
+        <div>
+          <!-- <img src="assets/images/crystal.gif" id="backgif"> -->
+          <br>
+          <p id="guide-text">&#10084;&nbsp;Press any key to start</p>
+          <br><br><br>
+          <p id="guess-word"></p><br>
+          <p id="player-typed">&#9998;</p>
+          <p id="left-chances">Left Chances: 9</p>
+          <p id="win-text">Wins: 0</p>
+          <p id="losses-text">Losses: 0</p>
+          <p id="last-word">Last word:</p>
+        </div>
       </div>
 
-      <script type="text/javascript">
+      <div class="col-lg-3" id="win-pic">
+        <img src="assets/images/cloud.gif" class="rightpic">
+      </div>
+    </div>
+  </div>
+  <!--container over-->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <footer>
+        <p class="cpright">Copyright &copy; 2018 Isaac Wu</p>
+      </footer>
+    </div>
+  </div>
+
+  <!------------------------------J----S------------------------------------>
+  <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>
