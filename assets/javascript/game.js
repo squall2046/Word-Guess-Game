@@ -1,3 +1,5 @@
+//Isaac WU Word Guess Game
+
 var gameGuide = document.getElementById("guide-text");
 var guessWord = document.getElementById("guess-word");
 var playerTyped = document.getElementById("player-typed");
@@ -57,7 +59,7 @@ document.onkeyup = function (event) {
         losses++;
         tried = []; //reset
         chances = 9; //reset
-        var randomWord = allWords[Math.floor(Math.random() * allWords.length)];
+        randomWord = allWords[randomNum];
         lossPic.innerHTML = ' <img src="assets/images/sephiroth2.gif" class="leftpic"> ';
         //load the audio location from the html address not js address!!!!!!!!!!
         var lossSound = new Audio('assets/sound/gameover.mp3');
@@ -67,7 +69,7 @@ document.onkeyup = function (event) {
     if (hiddenWord === randomWord) {
         wins++;
         tried = []; //reset
-        var randomWord = allWords[Math.floor(Math.random() * allWords.length)];
+        randomWord = allWords[randomNum];
         winPic.innerHTML = ' <img src="assets/images/cloud2.gif" class="rightpic"> ';
         var winSound = new Audio('assets/sound/ffvictory.mp3');
         winSound.play();
@@ -75,7 +77,7 @@ document.onkeyup = function (event) {
     }
 
     gameGuide.textContent = "The Game Begin";
-    playerTyped.textContent = "Typed: " + tried;
+    playerTyped.innerHTML = "&#9998; " + tried;
     leftChances.textContent = "Left Chances: " + chances;
     winTimes.textContent = "Wins: " + wins;
     lossTimes.textContent = "Losses: " + losses;

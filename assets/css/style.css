@@ -1,4 +1,4 @@
-/* Isaac WU Psychic Game */
+/* Isaac WU Word Guess Game */
 
 .iw-can {
     padding-bottom: 50px;
@@ -17,6 +17,15 @@
 #crystal {
     width: 80px;
 }
+
+/* .leftpic {
+    margin-left: 100px;
+    width: 200px;
+}
+.rightpic {
+    margin-left: -50px;
+    width: 150px;
+} */
 
 .iw-2 {
     font-family: 'Fredericka the Great', cursive;
