@@ -6,91 +6,112 @@ var chances = 9;
 var wins = 0;
 var losses = 0;
 
-var allWords = ["CLOUD", "CAITSITH", "CID", "REDXIII", "SEPHIROTH", "TIFA", "YUFFIE"];
+var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var allWords = ["AERITH", "BARRET", "CLOUD", "CAITSITH", "CID", "REDXIII", "SEPHIROTH", "TIFA", "VINCENT", "YUFFIE"];
 
-// choose a random word
+//////////// choose a random word ///////////
 var randomNum = Math.floor(Math.random() * allWords.length);
 var randomWord = allWords[randomNum];
 var randomArr = randomWord.split("");
 console.log(randomWord);
 console.log("word length: " + randomWord.length);
 console.log(randomArr);
+console.log("wordarr length: " + randomArr.length);
 
-// hide the random word to [ _ _ _ ]
+//////////// hide the random word to [ _ _ _ ] ////////////
 for (var i = 0; i < randomWord.length; i++) {
-    // hiddenWord += ("_ ");
     hiddenWord[i] = "_";
 };
 var guessWord = document.getElementById("guess-word");
 guessWord.textContent = "[ " + hiddenWord + " ]";
 
+/////////////// reset word /////////////////
+function resetword() {
+    hiddenWord = [];
+    tried = [];
+    chances = 9;
+    var lastWord = document.getElementById("last-word");
+    lastWord.textContent = "Last word: " + randomWord;
+
+    //reload a new word behind
+    randomWord = allWords[Math.floor(Math.random() * allWords.length)];
+    console.log(randomWord);
+    //reload the new word's length
+    randomArr = randomWord.split("");
+    //reload the underscores on screen
+    for (var i = 0; i < randomWord.length; i++) {
+        hiddenWord[i] = "_";
+    };
+    guessWord.textContent = "[ " + hiddenWord + " ]";
+};
 
 /////////// onkeyup action //////////////
 document.onkeyup = function (event) {
     var userGuess = event.key.toUpperCase();
-    tried.push(userGuess);
-    var lossPic = document.getElementById("loss-pic");
-    lossPic.innerHTML = ' <img src="assets/images/sephiroth.gif" class="leftpic"> '; //reset
-    var winPic = document.getElementById("win-pic");
-    winPic.innerHTML = ' <img src="assets/images/cloud.gif" class="rightpic"> '; //reset
+
+    // guessWord.textContent = "[ " + hiddenWord + " ]";
+
+    var gameGuide = document.getElementById("guide-text"); //reset
+    gameGuide.textContent = "The Game Begin";
+    var lossPic = document.getElementById("loss-pic"); //reset
+    lossPic.innerHTML = ' <img src="assets/images/sephiroth.gif" class="leftpic"> ';
+    var winPic = document.getElementById("win-pic"); //reset
+    winPic.innerHTML = ' <img src="assets/images/cloud.gif" class="rightpic"> ';
     var keySound = new Audio('assets/sound/01.mp3');
     keySound.play();
 
-    // guess wrong:
-    if (randomWord.indexOf(userGuess) === -1) {
-        chances--;
-    }
-    if (chances === 0) {
-        losses++;
-        hiddenWord = [];
-        tried = [];
-        chances = 9;
-        randomWord = allWords[Math.floor(Math.random() * allWords.length)];
-        console.log(randomWord)
-        for (var i = 0; i < randomWord.length; i++) {
-            hiddenWord[i] = "_";
-        };
-        guessWord.textContent = "[ " + hiddenWord + " ]";
+    //make sure player only typein letter
+    if (alphabet.indexOf(userGuess) !== -1) {
 
+        // make sure no repeatly keyin!! very important!!
+        // if repeatly keyin a right letter, the game will win before you guess the whole word,
+        // because when you keyin right letter, the randomArr.length - 1. when randomArr.length = 0, game win.
+        if (tried.indexOf(userGuess) === -1) {
+            tried.push(userGuess);
 
-        lossPic.innerHTML = ' <img src="assets/images/sephiroth2.gif" class="leftpic"> ';
-        //load the audio location from the html address not js address!!!!!!!!!!
-        var lossSound = new Audio('assets/sound/gameover.mp3');
-        lossSound.play();
-    }
+            // guess wrong:
+            if (randomWord.indexOf(userGuess) === -1) {
+                chances--;
+            }
+            // loss++:
+            if (chances === 0) {
+                losses++;
+                resetword();
 
-    // guess right:
-    for (var i = 0; i < randomWord.length; i++) {
-        if (randomWord[i] === userGuess) {
-            hiddenWord[i] = userGuess;
-            console.log(hiddenWord);
-            randomArr.length--;
-            console.log(randomArr.length);
-            guessWord = document.getElementById("guess-word");
-            guessWord.textContent = "[ " + hiddenWord + " ]";
+                lossPic.innerHTML = ' <img src="assets/images/sephiroth2.gif" class="leftpic"> ';
+                //load the audio location from the html address not js address!!!!!!!!!!
+                var lossSound = new Audio('assets/sound/gameover.mp3');
+                lossSound.play();
+            }
+
+            // guess right:
+            for (var i = 0; i < randomWord.length; i++) {
+                if (randomWord[i] === userGuess) {
+                    hiddenWord[i] = userGuess;
+                    console.log(hiddenWord);
+                    randomArr.length--;
+                    guessWord.textContent = "[ " + hiddenWord + " ]";
+                }
+            }
+
+            // win++:
+            if (randomArr.length === 0) {
+                wins++;
+                resetword();
+
+                winPic.innerHTML = ' <img src="assets/images/cloud2.gif" class="rightpic"> ';
+                //load the audio location from the html address not js address!!!!!!!!!!
+                var winSound = new Audio('assets/sound/ffvictory.mp3');
+                winSound.play();
+            }
+        }
+        else {
+            gameGuide.textContent = "This had been tried";
         }
     }
-    if (randomArr.length === 0) {
-        wins++;
-        hiddenWord = [];
-        tried = [];
-        chances = 9;
-        randomWord = allWords[Math.floor(Math.random() * allWords.length)];
-        console.log(randomWord)
-        randomArr = randomWord.split("");
-        guessWord = document.getElementById("guess-word");
-        guessWord.textContent = "[ " + hiddenWord + " ]";
-
-        winPic.innerHTML = ' <img src="assets/images/cloud2.gif" class="rightpic"> ';
-        //load the audio location from the html address not js address!!!!!!!!!!
-        var winSound = new Audio('assets/sound/ffvictory.mp3');
-        winSound.play();
+    else {
+        gameGuide.textContent = "Use Letter Only";
     }
-
-
-
-    var gameGuide = document.getElementById("guide-text");
-    gameGuide.textContent = "The Game Begin";
     var playerTyped = document.getElementById("player-typed");
     playerTyped.innerHTML = "&#9998; " + tried;
     var leftChances = document.getElementById("left-chances");
