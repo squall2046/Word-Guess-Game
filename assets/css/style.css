@@ -18,25 +18,6 @@
     width: 80px;
 }
 
-.leftpic {
-    position: absolute;
-    left: 135px;
-}
-.leftpic2 {
-    position: absolute;
-    top: -170px;
-    left: 30px;}
-
-.rightpic {
-    position: absolute;
-    top: 95px;
-    left: -100px;
-}
-.rightpic2 {
-    position: absolute;
-    left: -200px;
-}
-
 .iw-2 {
     font-family: 'Fredericka the Great', cursive;
     font-size: 25px;
@@ -46,7 +27,7 @@
 .iw-3 {
     /* background-image: url("../images/crystal.gif"); */
     float: left;
-    position: relative;
+    position: absolute;
     color: rgb(195, 205, 218);
     font-family: 'Press Start 2P', cursive;
     font-size: 15px;
@@ -72,3 +53,129 @@ footer {
     color: rgb(195, 205, 218);
     height: 40px;
     }
+
+.leftpic {
+    position: absolute;
+    left: 120px;
+}
+.leftpic2 {
+    position: absolute;
+    top: -170px;
+    left: 15px;
+}
+
+.rightpic {
+    position: absolute;
+    top: 100px;
+    left: 800px;
+}
+.rightpic2 {
+    position: absolute;
+    top: 0px;
+    left: 700px;
+}
+/*--========================================================================================================================================
+ MEDIA QUERY       MEDIA QUERY       MEDIA QUERY       MEDIA QUERY       MEDIA QUERY       MEDIA QUERY       MEDIA QUERY       MEDIA QUERY
+==========================================================================================================================================-*/
+  /*-------------------- media query must set at the bottom of css file, or it will be overwrited by css style --------------------------*/
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .leftpic {
+        position: absolute;
+        left: 40px;
+    }
+    .leftpic2 {
+        position: absolute;
+        top: -170px;
+        left: -65px;
+    }
+
+    .rightpic {
+        position: absolute;
+        top: 100px;
+        left: 720px;
+    }
+    .rightpic2 {
+        position: absolute;
+        top: 0px;
+        left: 620px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .leftpic {
+        position: absolute;
+        left: -80px;
+    }
+    .leftpic2 {
+        position: absolute;
+        top: -175px;
+        left: -190px;
+    }
+
+    .rightpic {
+        position: absolute;
+        top: 100px;
+        left: 600px;
+    }
+    .rightpic2 {
+        position: absolute;
+        top: 0px;
+        left: 500px;
+    }
+}
+
+@media (min-width: 575px) and (max-width: 767px) {
+    .leftpic {
+        position: absolute;
+        top: -120px;
+        left: 0px;
+        height: 100px;
+    }
+    .leftpic2 {
+        position: absolute;
+        top: -220px;
+        left: -65px;
+        height: 200px;
+    }
+
+    .rightpic {
+        position: absolute;
+        top: -115px;
+        left: 400px;
+        height: 100px;
+    }
+    .rightpic2 {
+        position: absolute;
+        top: -165px;
+        left: 350px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 574px) {
+    .leftpic {
+        position: absolute;
+        top: -70px;
+        left: 0px;
+        height: 50px;
+    }
+    .leftpic2 {
+        position: absolute;
+        top: -150px;
+        left: -65px;
+        height: 100px;
+    }
+
+    .rightpic {
+        position: absolute;
+        top: -70px;
+        left: 310px;
+        height: 50px;
+    }
+    .rightpic2 {
+        position: absolute;
+        top: -120px;
+        left: 260px;
+        height: 75px;
+    }
+}

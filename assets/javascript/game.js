@@ -53,9 +53,9 @@ document.onkeyup = function (event) {
 
     var gameGuide = document.getElementById("guide-text"); //reset
     gameGuide.textContent = "The Game Begin";
-    var lossPic = document.getElementById("loss-pic"); //reset
+    var lossPic = document.getElementById("left-pic"); //reset
     lossPic.innerHTML = ' <img src="assets/images/sephiroth.gif" class="leftpic"> ';
-    var winPic = document.getElementById("win-pic"); //reset
+    var winPic = document.getElementById("right-pic"); //reset
     winPic.innerHTML = ' <img src="assets/images/cloud.gif" class="rightpic"> ';
 
     //make sure player only typein letter
