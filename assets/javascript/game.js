@@ -57,8 +57,6 @@ document.onkeyup = function (event) {
     lossPic.innerHTML = ' <img src="assets/images/sephiroth.gif" class="leftpic"> ';
     var winPic = document.getElementById("win-pic"); //reset
     winPic.innerHTML = ' <img src="assets/images/cloud.gif" class="rightpic"> ';
-    var keySound = new Audio('assets/sound/01.mp3');
-    keySound.play();
 
     //make sure player only typein letter
     if (alphabet.indexOf(userGuess) !== -1) {
@@ -72,13 +70,16 @@ document.onkeyup = function (event) {
             // guess wrong:
             if (randomWord.indexOf(userGuess) === -1) {
                 chances--;
+                var keySound = new Audio('assets/sound/key.mp3');
+                keySound.play();
             }
             // loss++:
             if (chances === 0) {
                 losses++;
                 resetword();
+                gameGuide.textContent = "- GAME OVER -";
 
-                lossPic.innerHTML = ' <img src="assets/images/sephiroth2.gif" class="leftpic"> ';
+                lossPic.innerHTML = ' <img src="assets/images/sephiroth2.gif" class="leftpic2"> ';
                 //load the audio location from the html address not js address!!!!!!!!!!
                 var lossSound = new Audio('assets/sound/gameover.mp3');
                 lossSound.play();
@@ -91,6 +92,8 @@ document.onkeyup = function (event) {
                     console.log(hiddenWord);
                     randomArr.length--;
                     guessWord.textContent = "[ " + hiddenWord + " ]";
+                    var rightSound = new Audio('assets/sound/right.mp3');
+                    rightSound.play();
                 }
             }
 
@@ -98,19 +101,24 @@ document.onkeyup = function (event) {
             if (randomArr.length === 0) {
                 wins++;
                 resetword();
+                gameGuide.textContent = "YOU WIN!!!";
 
-                winPic.innerHTML = ' <img src="assets/images/cloud2.gif" class="rightpic"> ';
+                winPic.innerHTML = ' <img src="assets/images/cloud2.gif" class="rightpic2"> ';
                 //load the audio location from the html address not js address!!!!!!!!!!
                 var winSound = new Audio('assets/sound/ffvictory.mp3');
                 winSound.play();
             }
         }
         else {
-            gameGuide.textContent = "This had been tried";
+            gameGuide.textContent = "This had been tried..";
+            var errorSound = new Audio('assets/sound/error.mp3');
+            errorSound.play();
         }
     }
     else {
         gameGuide.textContent = "Use Letter Only";
+        var errorSound = new Audio('assets/sound/error.mp3');
+        errorSound.play();
     }
     var playerTyped = document.getElementById("player-typed");
     playerTyped.innerHTML = "&#9998; " + tried;

@@ -18,14 +18,24 @@
     width: 80px;
 }
 
-/* .leftpic {
-    margin-left: 100px;
-    width: 200px;
+.leftpic {
+    position: absolute;
+    left: 135px;
 }
+.leftpic2 {
+    position: absolute;
+    top: -170px;
+    left: 30px;}
+
 .rightpic {
-    margin-left: -50px;
-    width: 150px;
-} */
+    position: absolute;
+    top: 95px;
+    left: -100px;
+}
+.rightpic2 {
+    position: absolute;
+    left: -200px;
+}
 
 .iw-2 {
     font-family: 'Fredericka the Great', cursive;
@@ -46,6 +56,10 @@
 
 #player-typed {
     font-size: 25px;
+}
+
+.bgm{
+    visibility: hidden;
 }
 
 footer {
