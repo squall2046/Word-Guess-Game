@@ -50,6 +50,9 @@ document.onkeyup = function (event) {
     var userGuess = event.key.toUpperCase();
 
     // guessWord.textContent = "[ " + hiddenWord + " ]";
+    // if using jQuery, you can change background image as following:
+    // $(".backimg").css({"background-image": "url(../images/giuseppe-gambera-buster-sword.gif)"});
+    // Attention: in css, url("..."), but in jQuery, the url(...)
 
     var gameGuide = document.getElementById("guide-text"); //reset
     gameGuide.textContent = "The Game Begin";

@@ -1,5 +1,9 @@
 /* Isaac WU Word Guess Game */
 
+.backimg{
+    background-image: url("../images/darkness.png");
+}
+
 .iw-can {
     padding-bottom: 50px;
 }
